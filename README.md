@@ -48,3 +48,11 @@ This project uses the Go standard library. Ensure you have Go installed on your 
 ## License
 
 This project is licensed under the MIT License.
+
+## Setting Up a New Day
+
+To set up a new day, use the `go run init_day.go <year> <current_day>` command. For example, to set up day 3 for the year 2024:
+```sh
+go run init_day.go 2024 3
+```
+This will create the directory and boilerplate code for the next day (day 3 in this example). After running the command, download the input file for the new day and save it as `day03/input.txt`.

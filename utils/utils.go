@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-func GetInputData() [][]int {
+func GetInputData() []string {
 	_, filename, _, ok := runtime.Caller(1)
 	if !ok {
 		panic("unable to get current file path")
@@ -26,10 +26,23 @@ func GetInputData() [][]int {
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
-	var data [][]int
+	var data []string
 
 	for scanner.Scan() {
 		line := scanner.Text()
+		data = append(data, line)
+	}
+
+	if err := scanner.Err(); err != nil {
+		panic(err)
+	}
+
+	return data
+}
+
+func ParseStringAsNumArray(data []string) [][]int {
+	var intData [][]int
+	for _, line := range data {
 		numbers := strings.Fields(line)
 		row := make([]int, len(numbers))
 		for i, num := range numbers {
@@ -39,12 +52,7 @@ func GetInputData() [][]int {
 			}
 			row[i] = value
 		}
-		data = append(data, row)
+		intData = append(intData, row)
 	}
-
-	if err := scanner.Err(); err != nil {
-		panic(err)
-	}
-
-	return data
+	return intData
 }

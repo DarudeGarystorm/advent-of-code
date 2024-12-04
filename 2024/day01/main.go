@@ -29,11 +29,12 @@ func (s *SortedList) Insert(value int) {
 
 func main() {
 	data := utils.GetInputData()
+	intData := utils.ParseStringAsNumArray(data)
 
 	sortedList1 := NewSortedList()
 	sortedList2 := NewSortedList()
 
-	for _, row := range data {
+	for _, row := range intData {
 		sortedList1.Insert(row[0])
 		sortedList2.Insert(row[1])
 	}

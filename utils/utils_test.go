@@ -17,15 +17,35 @@ func TestGetInputData(t *testing.T) {
 	}
 	defer os.Remove(filename)
 
-	expected := [][]int{
-		{1, 2},
-		{3, 4},
-		{5, 6},
+	expected := []string{
+		"1 2",
+		"3 4",
+		"5 6",
 	}
 
 	data := utils.GetInputData()
 
 	if !reflect.DeepEqual(data, expected) {
 		t.Errorf("Expected %v, got %v", expected, data)
+	}
+}
+
+func TestParseStringAsNumArray(t *testing.T) {
+	data := []string{
+		"1 2",
+		"3 4",
+		"5 6",
+	}
+
+	expected := [][]int{
+		{1, 2},
+		{3, 4},
+		{5, 6},
+	}
+
+	intData := utils.ParseStringAsNumArray(data)
+
+	if !reflect.DeepEqual(intData, expected) {
+		t.Errorf("Expected %v, got %v", expected, intData)
 	}
 }

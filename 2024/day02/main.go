@@ -9,9 +9,10 @@ import (
 
 func main() {
 	data := utils.GetInputData()
+	intData := utils.ParseStringAsNumArray(data)
 
-	fmt.Println("Part 1:", part1(data))
-	fmt.Println("Part 2:", part2(data))
+	fmt.Println("Part 1:", part1(intData))
+	fmt.Println("Part 2:", part2(intData))
 }
 
 func checkRow(row []int) (bool, int) {
