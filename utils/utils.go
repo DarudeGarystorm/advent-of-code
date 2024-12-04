@@ -40,6 +40,14 @@ func GetInputData() []string {
 	return data
 }
 
+func ParseStringAsRuneArray(data []string) [][]rune {
+	var runeData [][]rune
+	for _, line := range data {
+		runeData = append(runeData, []rune(line))
+	}
+	return runeData
+}
+
 func ParseStringAsNumArray(data []string) [][]int {
 	var intData [][]int
 	for _, line := range data {
