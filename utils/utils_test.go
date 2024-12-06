@@ -49,3 +49,41 @@ func TestParseStringAsNumArray(t *testing.T) {
 		t.Errorf("Expected %v, got %v", expected, intData)
 	}
 }
+
+func TestInsertAtIndex(t *testing.T) {
+	array := []int{1, 2, 3, 4}
+	value := 99
+	index := 2
+	expected := []int{1, 2, 99, 3, 4}
+
+	result := utils.InsertAtIndex(array, value, index)
+
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("Expected %v, got %v", expected, result)
+	}
+}
+
+func TestRemoveAtIndex(t *testing.T) {
+	array := []int{1, 2, 3, 4}
+	index := 2
+	expected := []int{1, 2, 4}
+
+	result := utils.RemoveAtIndex(array, index)
+
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("Expected %v, got %v", expected, result)
+	}
+}
+
+func TestMoveElement(t *testing.T) {
+	array := []int{1, 2, 3, 4}
+	srcIndex := 1
+	dstIndex := 3
+	expected := []int{1, 3, 4, 2}
+
+	result := utils.MoveElement(array, srcIndex, dstIndex)
+
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("Expected %v, got %v", expected, result)
+	}
+}
