@@ -48,6 +48,23 @@ func ParseStringAsRuneArray(data []string) [][]rune {
 	return runeData
 }
 
+func ParseInputAsNumArray(input []string, divider string) [][]int {
+	grid := make([][]int, len(input))
+	for i, line := range input {
+		grid[i] = ParseLineAsNumArray(line, divider)
+	}
+	return grid
+}
+
+func ParseLineAsNumArray(line string, divider string) []int {
+	numbers := strings.Split(line, divider)
+	arr := make([]int, len(numbers))
+	for i, num := range numbers {
+		arr[i], _ = strconv.Atoi(num)
+	}
+	return arr
+}
+
 func ParseStringAsNumArray(data []string) [][]int {
 	var intData [][]int
 	for _, line := range data {
