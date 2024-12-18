@@ -56,3 +56,6 @@ To set up a new day, use the `go run init_day.go <year> <current_day>` command. 
 go run init_day.go 2024 3
 ```
 This will create the directory and boilerplate code for the next day (day 3 in this example). After running the command, download the input file for the new day and save it as `day03/input.txt`.
+
+# Day 16 update
+I'm tired of Go, all these dang for loops. Will do python from here on out? Maybe. I'm not sure
